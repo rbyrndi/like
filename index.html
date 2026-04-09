@@ -376,6 +376,69 @@
             }
         }
 
+        #envelope-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background-color: var(--secondary-color); /* Latar pink lembut */
+            z-index: 9999; /* Pastikan selalu di paling atas */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: opacity 1s ease-in-out, visibility 1s;
+        }
+
+        /* Kelas untuk menghilangkan layar pembuka */
+        #envelope-screen.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .envelope-content {
+            background: var(--white);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 15px 40px rgba(216, 131, 153, 0.3);
+            text-align: center;
+            max-width: 90%;
+            width: 500px;
+            border-top: 6px solid var(--primary-color);
+        }
+
+        .envelope-content p {
+            font-family: 'Lato', sans-serif;
+            color: var(--text-dark);
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            line-height: 1.8;
+        }
+
+        .open-btn {
+            background-color: var(--primary-color);
+            color: var(--white);
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(216, 131, 153, 0.4);
+        }
+
+        .open-btn:hover {
+            background-color: #c06e84;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(216, 131, 153, 0.6);
+        }
+
+        /* Mencegah scroll sebelum surat dibuka */
+        body.locked {
+            overflow: hidden;
+        }
+
         /* --- RESPONSIVE --- */
         @media (max-width: 768px) {
             .hero h1 {
@@ -399,6 +462,13 @@
 
 <body>
 
+    <div id="envelope-screen">
+        <div class="envelope-content">
+            <p>"Andai saja waktu bisa diputar kembali, meskipun endingnya tetap sama, aku tidak akan pernah bosan untuk terus mengulangnya. Banyak dopamin yang terjerat akhirnya lepas.<br><br>Senang bisa mengenalmu, Intan."</p>
+            <button id="open-letter-btn" class="open-btn">Buka Surat</button>
+        </div>
+    </div>
+
     <audio id="bg-music" loop>
         <source
             src="src/sound/YTDown.com_YouTube_Bruno-Mars-Risk-It-All-Official-Music-Vi_Media_lY5V4hSLWY8_009_128k.mp3"
@@ -412,7 +482,7 @@
     </div>
 
     <header class="hero fade-in">
-        <h1>Intan (belum tau lengkapnya)</h1>
+        <h1>Intan</h1>
         <p>Membawa damai yang tak butuh banyak alasan, Teruslah tersenyum dengan manismu yang khas.</p>
         <div class="date">17 Agustus 2006</div>
 
@@ -524,7 +594,6 @@
         <p class="footer-msg">Dibuat dengan segenap ♥ untukmu</p>
     </footer>
 
-    <!-- LIGHTBOX ELEMENT (Modal) -->
     <div id="lightbox" class="lightbox" onclick="closeLightbox(event)">
         <span class="close-btn" onclick="closeLightboxForce()">&times;</span>
         <img class="lightbox-content" id="lightbox-img" src="" alt="Fullscreen">
@@ -532,7 +601,6 @@
 
     <!-- JAVASCRIPT -->
     <script>
-        alert('Andai saja waktu bisa diputar kembali, meskipun endingnya tetap sama, aku tidak akan pernah bosan untuk terus mengulangnya, banyak dopamin yang terjerat akhirnya lepas. Senang bisa mengenalmu, intan')
         const audio = document.getElementById('bg-music');
         const musicBtn = document.getElementById('music-toggle');
         const musicIcon = musicBtn.querySelector('.music-icon');
@@ -553,22 +621,33 @@
             }
         }
 
-        window.addEventListener('load', () => {
+        const envelopeScreen = document.getElementById('envelope-screen');
+        const openLetterBtn = document.getElementById('open-letter-btn');
+
+        // Kunci scroll saat halaman pertama kali dimuat
+        document.body.classList.add('locked');
+
+        openLetterBtn.addEventListener('click', () => {
+            // 1. Hilangkan layar pembuka dengan efek transisi
+            envelopeScreen.classList.add('hidden');
+            
+            // 2. Buka kunci scroll agar website bisa digeser ke bawah
+            document.body.classList.remove('locked');
+
+            // 3. Putar musik
             audio.volume = 0.5;
-
-            const playPromise = audio.play();
-
-            if (playPromise !== undefined) {
-                playPromise.then(_ => {
-                    isPlaying = true;
-                    musicBtn.classList.add('spin');
-                })
-                    .catch(error => {
-                        isPlaying = false;
-                        musicIcon.textContent = '🔇';
-                        console.log("Autoplay dicegah browser. Silakan klik tombol musik.");
-                    });
-            }
+            audio.play().then(() => {
+                isPlaying = true;
+                musicBtn.classList.add('spin');
+                musicIcon.textContent = '🎵';
+            }).catch(error => {
+                console.log("Musik gagal diputar otomatis, pengguna bisa klik tombol manual.");
+            });
+            
+            // Hapus elemen dari memori setelah animasi selesai (1 detik)
+            setTimeout(() => {
+                envelopeScreen.style.display = 'none';
+            }, 1000);
         });
 
         // --- LOGIKA LIGHTBOX ---
