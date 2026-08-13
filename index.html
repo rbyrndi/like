@@ -18,9 +18,6 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
     <style>
-      /* ============================================
-     VARIABLES & RESET
-     ============================================ */
       :root {
         --pink-50: #fff5f7;
         --pink-100: #ffe5ec;
@@ -90,9 +87,6 @@
         pointer-events: none;
       }
 
-      /* ============================================
-     FLOATING BACKGROUND (balloons, hearts, petals)
-     ============================================ */
       .floating-bg {
         position: fixed;
         inset: 0;
@@ -231,9 +225,6 @@
         }
       }
 
-      /* ============================================
-     PAGE SYSTEM
-     ============================================ */
       .page {
         position: relative;
         width: 100%;
@@ -253,9 +244,6 @@
         display: none !important;
       }
 
-      /* ============================================
-     COUNTDOWN PAGE
-     ============================================ */
       #countdownPage {
         display: none;
         min-height: 100vh;
@@ -336,7 +324,6 @@
         }
       }
 
-      /* Countdown Timer */
       .countdown-timer {
         display: flex;
         align-items: center;
@@ -410,7 +397,6 @@
         margin: 0 -0.1rem;
       }
 
-      /* Button */
       .button-wrapper {
         margin-top: 2.5rem;
         min-height: 80px;
@@ -500,14 +486,10 @@
         }
       }
 
-      /* ============================================
-     GREETING PAGE
-     ============================================ */
       #greetingPage {
         padding: 0;
       }
 
-      /* Music Toggle */
       .music-toggle {
         position: fixed;
         top: 1.2rem;
@@ -549,9 +531,6 @@
         }
       }
 
-      /* ============================================
-     ENVELOPE SECTION
-     ============================================ */
       .envelope-section {
         min-height: 100vh;
         display: flex;
@@ -586,7 +565,6 @@
         animation: fadeInUp 1s 0.5s forwards;
       }
 
-      /* Envelope */
       .envelope-wrapper {
         position: relative;
         width: 300px;
@@ -757,9 +735,6 @@
         cursor: not-allowed;
       }
 
-      /* ============================================
-     LETTER SECTION
-     ============================================ */
       .letter-section {
         display: none;
         padding: 4rem 1rem 5rem;
@@ -926,9 +901,6 @@
         margin-top: 0.3rem;
       }
 
-      /* ============================================
-     GALLERY SECTION
-     ============================================ */
       .gallery-section {
         padding: 4rem 1rem;
         text-align: center;
@@ -1034,9 +1006,6 @@
         font-size: 2rem;
       }
 
-      /* ============================================
-     FINAL SECTION
-     ============================================ */
       .final-section {
         min-height: 80vh;
         display: flex;
@@ -1110,7 +1079,6 @@
         }
       }
 
-      /* Footer */
       .footer {
         padding: 2rem 1rem 3rem;
         text-align: center;
@@ -1124,9 +1092,6 @@
         display: inline-block;
       }
 
-      /* ============================================
-     CONFETTI CANVAS
-     ============================================ */
       .confetti-canvas {
         position: fixed;
         top: 0;
@@ -1137,9 +1102,6 @@
         z-index: 50;
       }
 
-      /* ============================================
-     CLICK HEART PARTICLES
-     ============================================ */
       .click-heart {
         position: fixed;
         pointer-events: none;
@@ -1163,9 +1125,6 @@
         }
       }
 
-      /* ============================================
-     RESPONSIVE (TABLET & DESKTOP)
-     ============================================ */
       @media (min-width: 640px) {
         .countdown-timer {
           gap: 0.8rem;
@@ -1227,7 +1186,6 @@
         }
       }
 
-      /* Reduced motion */
       @media (prefers-reduced-motion: reduce) {
         *,
         *::before,
@@ -1292,16 +1250,12 @@
       </div>
     </section>
 
-    <!-- ============================================
-     PAGE 2: GREETING
-     ============================================ -->
     <section id="greetingPage" class="page">
       <!-- Music Toggle -->
       <button class="music-toggle" id="musicToggle" aria-label="Toggle music">
         <i class="fas fa-music"></i>
       </button>
 
-      <!-- Envelope Section -->
       <div class="envelope-section">
         <div class="section-inner">
           <p class="page-intro">Selamat ulang tahun</p>
@@ -1327,7 +1281,6 @@
         </div>
       </div>
 
-      <!-- Letter Section -->
       <div class="letter-section" id="letterSection">
         <div class="letter-paper">
           <div class="paper-decoration top-left"></div>
@@ -1338,13 +1291,14 @@
           <div class="letter-body">
             <p>
               Selamat ulang tahun, Intan. Hari ini, dunia menjadi lebih indah
-              karena di hari ini genap, engkau hadir di dunia. Terima kasih sudah
-              lahir, terima kasih sudah tumbuh menjadi pribadi yang luar biasa.
+              karena di hari ini genap, engkau hadir di dunia. Terima kasih
+              sudah lahir, terima kasih sudah tumbuh menjadi pribadi yang luar
+              biasa.
             </p>
 
             <p>
               Terima kasih sudah menjadi versi terbaik dari dirimu. Untuk
-              kesabaranmu menghadapi semua kejamnya dunia, untuk semua tawa dan 
+              kesabaranmu menghadapi semua kejamnya dunia, untuk semua tawa dan
               air mata yang kamu utarakan.
             </p>
 
@@ -1372,17 +1326,13 @@
         </div>
       </div>
 
-      <!-- Photo Gallery -->
       <div class="gallery-section">
         <h2 class="section-title">Your best moments</h2>
         <p class="section-subtitle">Setiap momen adalah harta</p>
 
-        <div class="photo-gallery" id="photoGallery">
-          <!-- Generated by JS -->
-        </div>
+        <div class="photo-gallery" id="photoGallery"></div>
       </div>
 
-      <!-- Final Section -->
       <div class="final-section">
         <div class="final-heart">
           <i class="fas fa-heart"></i>
@@ -1405,22 +1355,13 @@
       </footer>
     </section>
 
-    <!-- Audio -->
     <audio id="bgMusic" loop preload="none">
       <source src="assets/music.mp3" type="audio/mpeg" />
     </audio>
 
     <script>
-      /* ============================================================
-   KONFIGURASI - Ganti sesuai kebutuhan
-   ============================================================ */
+      const TARGET_DATE = "2026-08-17T00:00:00";
 
-      // TANGGAL TARGET COUNTDOWN (tanggal ulang tahun pacar Anda)
-      // Format: 'YYYY-MM-DDTHH:MM:SS'
-      const TARGET_DATE = "2026-08-13T00:00:00";
-
-      // DAFTAR FOTO UNTUK GALERI (ganti dengan path foto Anda)
-      // Contoh: 'assets/photo1.jpg', 'assets/photo2.jpg', dst.
       const GALLERY_IMAGES = [
         "assets/photo1.jpeg",
         "assets/photo4.jpeg",
@@ -1439,7 +1380,6 @@
         "assets/photo10.jpeg",
       ];
 
-      // FOTO UNTUK BALON-BALON YANG MELAYANG (foto kecil di dalam balon)
       const BALLOON_PHOTOS = [
         "assets/balloon2.jpeg",
         "assets/photo1.jpeg",
@@ -1459,14 +1399,8 @@
         "assets/photo10.jpeg",
       ];
 
-      // PATH FILE MUSIK
       const MUSIC_SRC = "assets/music.mp3";
 
-      /* ============================================================
-   KODE UTAMA - Jangan ubah kecuali Anda tahu apa yang dilakukan
-   ============================================================ */
-
-      // ----- DOM ELEMENTS -----
       const els = {
         days: document.getElementById("days"),
         hours: document.getElementById("hours"),
@@ -1487,7 +1421,6 @@
         confettiCanvas: document.getElementById("confettiCanvas"),
       };
 
-      // ----- COLOR PALETTE FOR BALLOONS -----
       const balloonColors = [
         { main: "#FF6B9D", dark: "#E91E63", light: "#FFB3CC" },
         { main: "#FF9EBB", dark: "#FF6B9D", light: "#FFC2D4" },
@@ -1497,16 +1430,10 @@
         { main: "#FFB3CC", dark: "#FF6B9D", light: "#FFC2D4" },
       ];
 
-      // ----- UTIL FUNCTIONS -----
       const rand = (min, max) => Math.random() * (max - min) + min;
       const randInt = (min, max) => Math.floor(rand(min, max + 1));
       const pick = (arr) => arr[randInt(0, arr.length - 1)];
 
-      /* ============================================================
-   FLOATING BACKGROUND ELEMENTS
-   ============================================================ */
-
-      // Create decorative balloon (SVG)
       function createBalloonSVG(color, size) {
         const id = "g" + Math.random().toString(36).substr(2, 9);
         return `
@@ -1526,7 +1453,6 @@
   `;
       }
 
-      // Create petal (SVG)
       function createPetalSVG() {
         const colors = ["#FF6B9D", "#FF9EBB", "#FFC2D4", "#E91E63"];
         const color = pick(colors);
@@ -1537,7 +1463,6 @@
   `;
       }
 
-      // Spawn a decorative balloon
       function spawnBalloon() {
         const balloon = document.createElement("div");
         balloon.className = "balloon";
@@ -1556,11 +1481,9 @@
 
         els.floatingBg.appendChild(balloon);
 
-        // Remove after animation
         setTimeout(() => balloon.remove(), (duration + 1) * 1000);
       }
 
-      // Spawn a petal
       function spawnPetal() {
         const petal = document.createElement("div");
         petal.className = "petal";
@@ -1583,7 +1506,6 @@
         setTimeout(() => petal.remove(), (duration + 1) * 1000);
       }
 
-      // Spawn photo balloon (balloon with photo hanging below)
       function spawnPhotoBalloon() {
         if (BALLOON_PHOTOS.length === 0) return;
 
@@ -1615,9 +1537,7 @@
         setTimeout(() => wrapper.remove(), (duration + 1) * 1000);
       }
 
-      // Initialize floating background
       function initFloatingBg() {
-        // Initial spawn
         for (let i = 0; i < 4; i++) {
           setTimeout(() => spawnBalloon(), i * 800);
         }
@@ -1628,15 +1548,10 @@
           setTimeout(() => spawnPhotoBalloon(), i * 2000);
         }
 
-        // Continuous spawn
         setInterval(spawnBalloon, 3200);
         setInterval(spawnPetal, 1800);
         setInterval(spawnPhotoBalloon, 8000);
       }
-
-      /* ============================================================
-   COUNTDOWN TIMER
-   ============================================================ */
 
       let prevTime = { days: -1, hours: -1, minutes: -1, seconds: -1 };
 
@@ -1646,7 +1561,6 @@
         const diff = target - now;
 
         if (diff <= 0) {
-          // Countdown finished
           els.days.textContent = "00";
           els.hours.textContent = "00";
           els.minutes.textContent = "00";
@@ -1682,7 +1596,6 @@
         if (els.openBtn.classList.contains("hidden")) {
           els.openBtn.classList.remove("hidden");
           els.hintText.style.display = "none";
-          // Burst confetti
           burstConfetti(window.innerWidth / 2, window.innerHeight / 2, 80);
         }
       }
@@ -1692,26 +1605,17 @@
         setInterval(updateTimer, 1000);
       }
 
-      /* ============================================================
-   PAGE NAVIGATION
-   ============================================================ */
-
       function goToGreetingPage() {
         els.countdownPage.classList.remove("active");
         els.greetingPage.classList.add("active");
         els.greetingPage.classList.remove("content-visible");
         window.scrollTo(0, 0);
 
-        // Setup gallery and observers after page is shown
         setTimeout(() => {
           setupGallery();
           setupScrollReveal();
         }, 100);
       }
-
-      /* ============================================================
-   ENVELOPE OPENING
-   ============================================================ */
 
       let envelopeOpened = false;
 
@@ -1720,15 +1624,12 @@
         envelopeOpened = true;
         els.greetingPage.classList.add("content-visible");
 
-        // Open envelope animation
         els.envelope.classList.add("open");
         els.openEnvelopeBtn.disabled = true;
         els.openEnvelopeBtn.style.opacity = "0.5";
 
-        // Start music
         playMusic();
 
-        // Burst confetti from envelope
         const rect = els.envelopeWrapper.getBoundingClientRect();
         burstConfetti(
           rect.left + rect.width / 2,
@@ -1736,7 +1637,6 @@
           60,
         );
 
-        // After envelope opens, fade it out and show letter
         setTimeout(() => {
           els.envelope.classList.add("fade-out");
         }, 1800);
@@ -1746,7 +1646,6 @@
           els.openEnvelopeBtn.style.display = "none";
           els.letterSection.classList.add("visible");
 
-          // Smooth scroll to letter
           setTimeout(() => {
             els.letterSection.scrollIntoView({
               behavior: "smooth",
@@ -1754,14 +1653,9 @@
             });
           }, 300);
 
-          // More confetti
           burstConfetti(window.innerWidth / 2, window.innerHeight / 3, 100);
         }, 2600);
       }
-
-      /* ============================================================
-   MUSIC CONTROL
-   ============================================================ */
 
       let musicPlaying = false;
 
@@ -1798,10 +1692,6 @@
             });
         }
       }
-
-      /* ============================================================
-   CONFETTI
-   ============================================================ */
 
       const ctx = els.confettiCanvas.getContext("2d");
       let confettiParticles = [];
@@ -1853,7 +1743,7 @@
         confettiParticles = confettiParticles.filter((p) => {
           p.x += p.vx;
           p.y += p.vy;
-          p.vy += 0.15; // gravity
+          p.vy += 0.15;
           p.vx *= 0.99;
           p.rotation += p.rotationSpeed;
           p.life -= 0.008;
@@ -1874,7 +1764,6 @@
             ctx.fill();
           }
 
-          // Heart shape occasionally
           if (p.shape === "rect" && Math.random() < 0.02) {
             ctx.fillStyle = "#E91E63";
             ctx.beginPath();
@@ -1892,10 +1781,6 @@
         requestAnimationFrame(updateConfetti);
       }
       updateConfetti();
-
-      /* ============================================================
-   GALLERY
-   ============================================================ */
 
       function setupGallery() {
         els.photoGallery.innerHTML = "";
@@ -1934,7 +1819,6 @@
 
           item.appendChild(img);
 
-          // Click to enlarge (simple)
           item.addEventListener("click", () => {
             burstConfetti(
               item.getBoundingClientRect().left + item.offsetWidth / 2,
@@ -1948,10 +1832,6 @@
 
         els.photoGallery.appendChild(fragment);
       }
-
-      /* ============================================================
-   SCROLL REVEAL
-   ============================================================ */
 
       function setupScrollReveal() {
         const observer = new IntersectionObserver(
@@ -1974,10 +1854,6 @@
           });
       }
 
-      /* ============================================================
-   CLICK HEART PARTICLES (on greeting page)
-   ============================================================ */
-
       function spawnClickHeart(x, y) {
         const heart = document.createElement("div");
         heart.className = "click-heart";
@@ -1990,28 +1866,18 @@
       }
 
       els.greetingPage.addEventListener("click", (e) => {
-        // Don't trigger on buttons
         if (e.target.closest("button")) return;
         spawnClickHeart(e.clientX, e.clientY);
       });
 
-      /* ============================================================
-   EVENT LISTENERS
-   ============================================================ */
-
-      // Open button (countdown finished)
       els.openBtn.addEventListener("click", goToGreetingPage);
 
-      // Open envelope button
       els.openEnvelopeBtn.addEventListener("click", openEnvelope);
 
-      // Also allow clicking envelope directly
       els.envelopeWrapper.addEventListener("click", openEnvelope);
 
-      // Music toggle
       els.musicToggle.addEventListener("click", toggleMusic);
 
-      // Try to play music on first user interaction (for mobile autoplay restrictions)
       document.addEventListener(
         "touchstart",
         function tryPlay() {
@@ -2019,23 +1885,17 @@
             !envelopeOpened &&
             els.greetingPage.classList.contains("active")
           ) {
-            // Don't auto-play, wait for envelope
           }
           document.removeEventListener("touchstart", tryPlay);
         },
         { once: true },
       );
 
-      /* ============================================================
-   INITIALIZATION
-   ============================================================ */
-
       window.addEventListener("DOMContentLoaded", () => {
         startCountdown();
         window.setTimeout(initFloatingBg, 120);
+      });
 
-        });
-      // Prevent context menu on long press (mobile)
       document.addEventListener("contextmenu", (e) => e.preventDefault());
     </script>
   </body>
